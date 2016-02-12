@@ -1,0 +1,44 @@
+<div class="template-details">
+  <div class="row">
+    <a ui-sref="templates">Go Back to template Lists</a>
+    <br>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-full" ng-src="img/{{mainImage}}">
+      <div class="row">
+        <div ng-repeat="image in template.images | limitTo: 4">
+          <div class="col-md-3">
+            <img class="img-full thumbnail" ng-src="img/{{image.name}}" ng-click="setImage(image)">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>{{template.name}}</h3>
+      <p>{{template.description}}</p>
+      <p>{{template.type}}</p>
+      <h4>{{template.price | currency}}</h4>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="business" value="test@test.com">
+        <input type="hidden" name="item_name" value="hat">
+        <input type="hidden" name="item_number" value="123">
+        <input type="hidden" name="amount" value="15.00">
+        <input type="hidden" name="first_name" value="John">
+        <input type="hidden" name="last_name" value="Doe">
+        <input type="hidden" name="address1" value="9 Elm Street">
+        <input type="hidden" name="address2" value="Apt 5">
+        <input type="hidden" name="city" value="Berwyn">
+        <input type="hidden" name="state" value="PA">
+        <input type="hidden" name="zip" value="19312">
+        <input type="hidden" name="night_phone_a" value="610">
+        <input type="hidden" name="night_phone_b" value="555">
+        <input type="hidden" name="night_phone_c" value="1234">
+        <input type="hidden" name="email" value="jdoe@zyzzyu.com">
+        <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+      </form>
+    </div>
+  </div>
+</div>
